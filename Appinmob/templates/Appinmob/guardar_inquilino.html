@@ -1,0 +1,19 @@
+{% extends "Appinmob/base.html" %}
+{%load static%}
+
+{% block title%} inquilinos {%endblock%}
+
+{%block contenido_que_cambia %}
+
+<h1> PAGINA DE GUARDAR INQUILINOS </h1>
+
+<form action = "" method="post">
+    {% csrf_token %}
+    <p> nombre: <input type = "text" name="nombre">
+    <p> apellido: <input type = "text" name="apellido">
+    <p> correo: <input type = "text" name="correo">
+    <p> telefono: <input type = "text" name="telefono">
+    <input type = "submit" value = "enviar">
+</form>
+
+{%endblock%}

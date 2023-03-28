@@ -1,0 +1,22 @@
+{% extends "Appinmob/base.html" %}
+{%load static%}
+
+{% block title%} inquilinos {%endblock%}
+
+{% block contenido_que_cambia %}
+<h1> PAGINA DE GUARDAR INQUILINOS CON FORM </h1>
+
+<form action = "" method="post">
+    {% csrf_token %}
+
+    <table>    
+
+        {{ miFormulario.as_table }}
+
+    </table>
+
+    <input type = "submit" value="Enviar">
+</form>
+
+
+{%endblock%}

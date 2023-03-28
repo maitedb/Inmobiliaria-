@@ -8,7 +8,7 @@
         <meta name="author" content="" />
         <title>
         {%block title%}
-        title 
+        
         {%endblock%}
         </title>
         <!-- Favicon-->
@@ -25,16 +25,15 @@
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
                 <a class="navbar-brand" href="{%url 'index' %}">INICIO</a>
-                <a class="navbar-brand" href="{%url 'inquilinos' %}">INQUILINOS</a>
+                <a class="navbar-brand" href="{%url 'guardar_inquilino' %}">INQUILINOS</a>
                 <a class="navbar-brand" href="{%url 'propietarios' %}">PROPIETARIOS</a>
                 <a class="navbar-brand" href="{%url 'propiedades' %}">PROPIEDADES</a>
                 <a class="navbar-brand" href="{%url 'empleados' %}">EMPLEADOS</a>
                 <a class="btn btn-primary" href="#signup">Sign Up</a>
             </div>
         </nav>
-        {% block contenido_que_cambia %}
-
-        {% endblock %}
+{% block contenido_que_cambia %}
+{% endblock %}
 
         <footer class="footer bg-light">
             <div class="container">

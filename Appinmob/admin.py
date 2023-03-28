@@ -3,7 +3,7 @@ from .models import *
 
 # Register your models here.
 
-admin.site.register(inquilinos)
-admin.site.register(propietarios)
-admin.site.register(empleados)
+admin.site.register(Inquilinos)
+admin.site.register(Propietarios)
+admin.site.register(Empleados)
 

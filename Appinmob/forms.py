@@ -17,3 +17,8 @@ class Guardar_empleadoForm(forms.Form):
     nombre = forms.CharField()
     apellido = forms.CharField()
     empleadoId = forms.IntegerField()
+
+class Buscar_PropietarioForm(forms.Form):
+    CodigoDePropiedad = forms.IntegerField()
+
+

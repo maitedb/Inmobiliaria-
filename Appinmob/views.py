@@ -1,8 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from Appinmob.models import *
-from Appinmob.forms import Guardar_inquilinoForm
-
+from Appinmob.forms import Guardar_propietarioForm, Guardar_inquilinoForm
 # Create your views here.
 
 def Indexx(request):
@@ -23,18 +22,6 @@ def Empleado(request):
 def guardar_inquilino(request):
 
     if request.method == "POST":
-        nombre = request.POST["nombre"]
-        apellido = request.POST["apellido"]
-        correo = request.POST["correo"]
-        telefono = request.POST["telefono"]
-        inquilino = Inquilinos(nombre=nombre, apellido=apellido, correo=correo, telefono=telefono)
-        inquilino.save()
-    return render(request, "Appinmob/guardar_inquilino.html")
-    
-def guardar_form(request):
-
-
-    if request.method == "POST":
 
         miFormulario = Guardar_inquilinoForm(request.POST)
         print(miFormulario)
@@ -42,11 +29,44 @@ def guardar_form(request):
         if miFormulario.is_valid():
             informacion= miFormulario.cleaned_data
             print(f"\n{informacion}\n")
-            inquilino = Inquilinos(nombre=informacion["nombre"], apellido = informacion["apellido"], correo=informacion["correo"], telefono = informacion["telefono"])
+            inquilino = Inquilinos(nombre=informacion["nombre"], apellido = informacion["apellido"], correo =informacion["correo"],  telefono = informacion["telefono"])
             inquilino.save()
-            return render(request, "Appinmob/index.html")
+            return render(request, "Appinmob/inquilinos.html")
     else:
         miFormulario = Guardar_inquilinoForm()
 
+    return render(request, "Appinmob/guardar_inquilino.html", {"miFormulario": miFormulario})
+
+
+
+    
+def guardar_form(request):
+    if request.method == "POST":
+
+        miFormulario = Guardar_propietarioForm(request.POST)
+        print(miFormulario)
+
+        if miFormulario.is_valid():
+            informacion= miFormulario.cleaned_data
+            print(f"\n{informacion}\n")
+            propietario = Propietarios(nombre=informacion["nombre"], apellido = informacion["apellido"], telefono = informacion["telefono"], CodigoDePropiedad =informacion["CodigoDePropiedad"])
+            propietario.save()
+            return render(request, "Appinmob/propietarios.html")
+    else:
+        miFormulario = Guardar_propietarioForm()
+
     return render(request, "Appinmob/guardar_form.html", {"miFormulario": miFormulario})
+
+def buscar_propietario(request):
+    if request.method == "POST":
+
+        print(f"\nESTA ES LA INFO: {request.POST['CodigoDePropiedad']}\n")
+        codigos = Propietarios.objects.filter(CodigoDePropiedad=int(request.POST["CodigoDePropiedad"]))
+
+        return render(request, "Appinmob/buscar_propietario.html", {'data': [codigos]})
+    else:
+        miFormulario = Guardar_propietarioForm()
+
+    return render(request, "Appinmob/buscar_propietario.html", {"miFormulario": miFormulario})
+
 

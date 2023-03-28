@@ -19,7 +19,7 @@ class Propietarios(models.Model):
     CodigoDePropiedad = models.IntegerField()
 
     def __str__(self):
-            return f"{self.id}- {self.nombre} {self.apellido} - {self.correo} - {self.telefono} - {self.CodigoDePropiedad}" 
+            return f" La propiedad numero:  {self.CodigoDePropiedad} corresponde a {self.nombre} {self.apellido}" 
     
 class Empleados(models.Model): 
     nombre = models.CharField(max_length=30)

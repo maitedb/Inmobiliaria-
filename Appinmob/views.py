@@ -114,11 +114,9 @@ def propiedades(request):
     propiedadesx = Propiedades.objects.all()
 
     return render(request, 'Appinmob/propiedades.html', {"propiedades": propiedadesx})
-
 def leerprop(request, id_propiedad):
     propiedad = get_object_or_404(Propiedades, id=id_propiedad)
     return render(request, 'appinmob/leermas.html', {'propiedad': propiedad})
-
 def cargar_propiedades(request):
         
     if request.method == "POST":
@@ -126,7 +124,7 @@ def cargar_propiedades(request):
         if propiedadesform.is_valid():
             data = propiedadesform.cleaned_data
 
-            propiedades = Propiedades(inmueble=data["inmueble"], ambientes = data["ambientes"], contrato = data["contrato"],ubicacion = data["ubicacion"], propietario =data["propietario"], m2 = data['m2'], estado=  data['estado'], imagen=  data['imagen'], empleadoencargado= data['empleadoencargado'], fecha=  data['fecha'])
+            propiedades = Propiedades(inmueble=data["inmueble"], ambientes=data['ambientes'], contrato=data["contrato"], ubicacion=data["ubicacion"], propietario=data["propietario"], m2=int(data['m2']), estado=data['estado'], imagen=data['imagen'], empleadoencargado=data['empleadoencargado'], fecha=data['fecha'])
             propiedades.save()
             return render(request, "Appinmob/propiedades.html")
     else:
@@ -134,4 +132,5 @@ def cargar_propiedades(request):
 
     return render(request, "Appinmob/guardar_propiedades.html", {"miFormulario": propiedadesform})
 
-
+def sobrenosotros(request):
+    return render(request, "Appinmob/sobrenosotros.html")

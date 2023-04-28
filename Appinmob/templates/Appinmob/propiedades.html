@@ -17,6 +17,7 @@
                             <h1 class="mb-5"> NUESTRAS PROPIEDADES </h1>
                             <form >
                              {% for propiedad in propiedades %}
+                             
                              <div class="card text-black">
                                 <div class="card-body">
                                   propiedad: {{propiedad.id}}.<a href="{% url 'leermas' propiedad.id %}"> Ver mas informacion</a>

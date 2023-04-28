@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path
 from Appinmob.views import  indexx
 from perfil.views import *
-from Appinmob.views import agregar_inquilinos, editar_inquilino, eliminar_inquilino, cargar_propietario, eliminar_propietario, editar_propietario, leerprop, cargar_propiedades
+from Appinmob.views import agregar_inquilinos, editar_inquilino, eliminar_inquilino, cargar_propietario, eliminar_propietario, editar_propietario, leerprop, cargar_propiedades, sobrenosotros
 
 urlpatterns = [
     path('', indexx, name="index"),
@@ -21,6 +21,7 @@ urlpatterns = [
     path('perfil/', perfil, name= 'perfil'),
     path('editar_perfil/', editar_perfil, name= 'editar_perfil' ), 
     path('agregar_propiedad/', cargar_propiedades, name = 'agregar_propiedad'),
+    path('sobrenosotros/', sobrenosotros, name= 'sobre_nosotros')
 
     ]
     

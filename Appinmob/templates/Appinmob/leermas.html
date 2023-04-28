@@ -18,21 +18,21 @@
                             
                             <form >
 
-                                <div class="card" style="width: 25rem;">
-                                    <img src="..." class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                      <h5 class="card-title text-black">{{ propiedad.id}}, {{propiedad.inmueble}} en {{propiedad.ubicacion}}</h5>
-                                      <p class="card-text text-black">{{ propiedad.estado}}</p>
-                                    </div>
-                                    <ul class="list-group list-group-flush">
-                                      <li class="list-group-item">TIPO DE CONTRATO {{ propiedad.contrato }}</li>
-                                      <li class="list-group-item">{{ propiedad.inmueble }} de {{propiedad.ambientes}} ambiente/s</li>
-                                      <li class="list-group-item"> {{ propiedad.m2 }} metros cuadrados</li>
-                                    </ul>
-                                    <div class="card-body">
-                                      <a href="#" class="card-link">empleado encargado</a>
-                                    </div>
-                                  </div>
+                              <div class="card" style="width: 25rem;">
+                                <img src="{{propiedad.imagen}}" class="bd-placeholder-img card-img-top" width="100%" height="180" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                <div class="card-body text-black">
+                                  <h5 class="card-title">{{propiedad.inmueble}} en {{propiedad.ubicacion}}</h5>
+                                  <p class="card-text">{{propiedad.contrato}}</p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                  <li class="list-group-item">metros cuadrados: {{propiedad.m2}}</li>
+                                  <li class="list-group-item">{{propiedad.propietario}}</li>
+                                  <li class="list-group-item">{{propiedad.condicion}}</li>
+                                </ul>
+                                <div class="card-body">
+                                  <a href="{% url 'propiedades' %}" class="card-link">volver a vista general</a>
+                                </div>
+                              </div>
                      </form>
                         </div>
                     </div>

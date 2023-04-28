@@ -9,8 +9,6 @@ class Inquilinos(models.Model):
     correo = models.EmailField()
     telefono = models.IntegerField()
 
-    def __str__(self):
-            return f"{self.id}- {self.nombre} {self.apellido} - {self.correo} - {self.telefono}" 
 class Propietarios(models.Model):
     nombre = models.CharField(max_length=30)
     apellido = models.CharField(max_length=25)
@@ -18,9 +16,6 @@ class Propietarios(models.Model):
     telefono = models.IntegerField()
     CodigoDePropiedad = models.IntegerField()
 
-    def __str__(self):
-            return f" La propiedad numero:  {self.CodigoDePropiedad} corresponde a {self.nombre} {self.apellido}" 
-    
 class Propiedades(models.Model):
     inmuebble = models.CharField(max_length=100)
     ambientes= models.IntegerField()
@@ -32,6 +27,3 @@ class Propiedades(models.Model):
     imagen = models.ImageField(upload_to="media/propiedades", null=True, blank = True, default=None)
     empleadoencargado = models.CharField(max_length=100, default="")
     fecha = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-
-    def __str__(self):
-        return f"{self.id} - {self.titulo} - {self.subtitulo} - {self.ubicacion}"

@@ -1,0 +1,19 @@
+{% block contenidoQueCambia %}
+    <h1>Su perfil ha sido editado exitosamente</h1>
+    
+    <form action="" method="POST">{% csrf_token %}
+
+        <table>
+
+            {{ miFormulario.as_table }}
+
+        </table>
+
+        <input type="submit", value="Enviar">
+            <br>
+        <td><a href="{% url 'index' %}">VOLVER A INICIO</a></td>
+
+
+    </form>  
+
+{% endblock %}

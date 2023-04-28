@@ -1,0 +1,22 @@
+{% extends "Appinmob/base.html" %}
+{%load static%}
+
+{% block title%} PROPIEDADES {%endblock%}
+
+{% block contenido_que_cambia %}
+<h1> REGISTRO DE PROPIETARIOS </h1>
+
+<form action = "" method="post">
+    {% csrf_token %}
+
+    <table>    
+
+        {{ miFormulario.as_table }}
+
+    </table>
+
+    <input type = "submit" value= "Agregar propiedad" >
+</form>
+
+
+{%endblock%}

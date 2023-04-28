@@ -11,6 +11,9 @@
                         <div class="text-center text-white">
                             <!-- Page heading-->
                             <h1 class="mb-5"> Bienvenidos a Alquileres Punta del Diablo </h1>
+                            {% if request.user.is_authenticated %}
+                            <a class="btn btn-primary" href="{% url 'perfil'%}" >MI PERFIL</a>
+                            {%endif%}
                         </div>
                     </div>
                 </div>

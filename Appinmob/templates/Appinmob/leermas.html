@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+
+{% extends 'Appinmob/base.html'%}
+
+{% load static %}
+
+{% block contenido_que_cambia %}
+
+
+        <header class="masthead">
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="text-white">
+                            <!-- Page heading-->
+                            <h1 class="mb-5"> NUESTRAS PROPIEDADES </h1>
+                            
+                            <form >
+
+                                <div class="card" style="width: 25rem;">
+                                    <img src="..." class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                      <h5 class="card-title text-black">{{ propiedad.id}}, {{propiedad.inmueble}} en {{propiedad.ubicacion}}</h5>
+                                      <p class="card-text text-black">{{ propiedad.estado}}</p>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                      <li class="list-group-item">TIPO DE CONTRATO {{ propiedad.contrato }}</li>
+                                      <li class="list-group-item">{{ propiedad.inmueble }} de {{propiedad.ambientes}} ambiente/s</li>
+                                      <li class="list-group-item"> {{ propiedad.m2 }} metros cuadrados</li>
+                                    </ul>
+                                    <div class="card-body">
+                                      <a href="#" class="card-link">empleado encargado</a>
+                                    </div>
+                                  </div>
+                     </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+{% endblock %}
+

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% extends "Appinmob/base.html" %}
+{%load static%}
+
+
+
+{% block contenido_que_cambia %}
+{% block title%} CARGE LOS DATOS CORRESPONDIENTES {%endblock%}
+<form action ="" method="POST">
+    {% csrf_token %}
+<table>
+    {{form.as_table}}
+<table/>
+<input type="submit" value= "SUBIR INQUILINO">
+</form>
+{%endblock%}

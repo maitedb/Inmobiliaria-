@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+
+{% extends 'Appinmob/base.html'%}
+
+{% load static %}
+
+{%block title%}
+LOG IN EMPLEADOS
+{%endblock%}
+
+{%block contenido_que_cambia%}
+<header class="masthead">
+    <div class="container position-relative">
+        <div class="row justify-content">
+            <div class="col-xl-4">
+                <div class="text-center text-white">
+                    <!-- Page heading-->
+                    <div style="text-align: justify;">
+                    <h4 class="mb-5"> Ingrese a la plataforma </h4>
+                    <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN" action="" method="POST">
+                            {% csrf_token %}
+                                {{ form.as_p }}
+                            <div class="col-auto"><button class="btn btn-primary btn-sm " type="submit">INICIAR SESION</button></div>
+                            <br>
+                            <a class="btn btn-outline-primary btn-sm" href="{% url 'register' %}">REGISTRARME</a>
+                            <a class="btn btn-outline-primary btn-sm"  href="{% url 'index' %}">VOLVER A INICIO</a></td>
+                            </div>
+                        </form>
+                    </div>
+                        <div class="row">
+                            <div class="col">
+                            </div> 
+                        </div>
+                        <!-- Submit success message-->
+                        <!---->
+                        <!-- This is what your users will see when the form-->
+                        <!-- has successfully submitted-->
+                        <div class="d-none" id="submitSuccessMessage">
+                            <div class="text-center mb-3">
+                                <div class="fw-bolder">Form submission successful!</div>
+                                <p>To activate this form, sign up at</p>
+                                <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                            </div>
+                        </div>
+                        <!-- Submit error message-->
+                        <!---->
+                        <!-- This is what your users will see when there is-->
+                        <!-- an error submitting the form-->
+                        <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{%endblock contenido_que_cambia%}
+
+
+
+
+                

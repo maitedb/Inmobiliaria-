@@ -1,19 +1,19 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from Appinmob.models import *
-from Appinmob.forms import Guardar_propietarioForm, Guardar_inquilinoForm
+from Appinmob.forms import *
 # Create your views here.
 
-def Indexx(request):
+def indexx(request):
     return render(request, 'Appinmob/index.html')
 
-def Inquilino(request):
+def inquilinos(request):
     return render(request, 'Appinmob/inquilinos.html')
 
-def Propietario(request):
+def propietarios(request):
     return render(request, 'Appinmob/propietarios.html')
 
-def Propiedades(request):
+def propiedades(request):
     return render(request, 'Appinmob/propiedades.html')
 
 def Empleado(request):
@@ -23,7 +23,7 @@ def guardar_inquilino(request):
 
     if request.method == "POST":
 
-        miFormulario = Guardar_inquilinoForm(request.POST)
+        miFormulario = InquilinoForm(request.POST)
         print(miFormulario)
 
         if miFormulario.is_valid():
@@ -33,17 +33,15 @@ def guardar_inquilino(request):
             inquilino.save()
             return render(request, "Appinmob/inquilinos.html")
     else:
-        miFormulario = Guardar_inquilinoForm()
+        miFormulario = InquilinoForm()
 
     return render(request, "Appinmob/guardar_inquilino.html", {"miFormulario": miFormulario})
 
-
-
     
-def guardar_form(request):
+def guardar_propietario(request):
     if request.method == "POST":
 
-        miFormulario = Guardar_propietarioForm(request.POST)
+        miFormulario = PropietarioForm(request.POST)
         print(miFormulario)
 
         if miFormulario.is_valid():
@@ -53,7 +51,7 @@ def guardar_form(request):
             propietario.save()
             return render(request, "Appinmob/propietarios.html")
     else:
-        miFormulario = Guardar_propietarioForm()
+        miFormulario = PropietarioForm()
 
     return render(request, "Appinmob/guardar_form.html", {"miFormulario": miFormulario})
 
@@ -65,7 +63,7 @@ def buscar_propietario(request):
 
         return render(request, "Appinmob/buscar_propietario.html", {'data': [codigos]})
     else:
-        miFormulario = Guardar_propietarioForm()
+        miFormulario = PropietarioForm()
 
     return render(request, "Appinmob/buscar_propietario.html", {"miFormulario": miFormulario})
 

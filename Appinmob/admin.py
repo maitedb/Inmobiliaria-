@@ -5,5 +5,5 @@ from .models import *
 
 admin.site.register(Inquilinos)
 admin.site.register(Propietarios)
-admin.site.register(Empleados)
+admin.site.register(Propiedades)
 

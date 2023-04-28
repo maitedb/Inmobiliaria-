@@ -25,55 +25,118 @@
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
                 <a class="navbar-brand" href="{%url 'index' %}">INICIO</a>
-                <a class="navbar-brand" href="{%url 'guardar_inquilino' %}">INQUILINOS</a>
-                <a class="navbar-brand" href="{%url 'guardar_form' %}">PROPIETARIOS</a>
-                <a class="navbar-brand" href="{%url 'buscar_propietario' %}">PROPIEDADES</a>
-                <a class="navbar-brand" href="{%url 'empleados' %}">EMPLEADOS</a>
-                <a class="btn btn-primary" href="#signup">Sign Up</a>
+                <a class="navbar-brand" href="{%url 'inquilinos' %}">INQUILINOS</a>
+                <a class="navbar-brand" href="{%url 'propietarios' %}">PROPIETARIOS</a>
+                <a class="navbar-brand" href="{%url 'propiedades' %}">PROPIEDADES</a>
+                {% if request.user.is_authenticated %}
+                <a class="btn btn-primary" href="{%url 'logout'%}" >CERRAR SESION</a>
+                {% else %}
+                <a class="btn btn-primary" href="{%url 'login'%}" >INGRESAR</a>
+                {% endif %}
             </div>
         </nav>
 {% block contenido_que_cambia %}
 {% endblock %}
 
-        <footer class="footer bg-light">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
-                        <ul class="list-inline mb-2">
-                            <li class="list-inline-item"><a href="#!">About</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Contact</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
-                        </ul>
-                        <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2021. All Rights Reserved.</p>
-                    </div>
-                    <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
-                        <ul class="list-inline mb-0">
-                            <li class="list-inline-item me-4">
-                                <a href="https://www.facebook.com/alojamientospuntadeldiablo/"><i class="bi-facebook fs-3"></i></a>
-                            </li>
-                            <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-twitter fs-3"></i></a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="https://www.instagram.com/alojamientospuntadeldiablo/"><i class="bi-instagram fs-3"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+<!-- Icons Grid-->
+<section class="features-icons bg-light text-center">
+<div class="container">
+<div class="row">
+<div class="col-lg-4">
+<div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+<div class="features-icons-icon d-flex"><i class="bi-window m-auto text-primary"></i></div>
+<h3>Transfromando lo tradicional</h3>
+<p class="lead mb-0"> incorporamos herramientas tecnologicas novedosas </p>
+</div>
+</div>
+<div class="col-lg-4">
+<div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+<div class="features-icons-icon d-flex"><i class="bi-layers m-auto text-primary"></i></div>
+<h3>Optimizacion de procesos</h3>
+<p class="lead mb-0">Reducimos tiempos de empleo y manejo de datos mediante apenas un click!</p>
+</div>
+</div>
+<div class="col-lg-4">
+<div class="features-icons-item mx-auto mb-0 mb-lg-3">
+<div class="features-icons-icon d-flex"><i class="bi-terminal m-auto text-primary"></i></div>
+<h3>De uso facil y sencillo</h3>
+<p class="lead mb-0">Secciones claras y concretas. Evitamos lo tedioso.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Image Showcases-->
+<section class="showcase">
+<div class="container-fluid p-0">
+<div class="row g-0">
+<div class="col-lg-6 order-lg-2 text-white showcase-img showcase-3"></div> 
+<div class="col-lg-6 order-lg-1 my-auto showcase-text">
+<h2>Implementamos herramientas novedosas</h2>
+<p class="lead mb-0">
+    Desde nuestra inmobiliaria apostamos por potenciar el trabajo remoto.
+    <br>
+    Creemos que es de letal importancia adaptarse a las demandas del mercado y brindar condiciones laborales dignas de actualidad. 
+    Mediante el uso de las herramientas que nos brinda la tecnologia, apostamos por implementar el trabajo remoto. </p>
+</div>
+</div>
+<div class="row g-0">
+<div class="col-lg-6 text-white showcase-img showcase-2"></div> 
+<div class="col-lg-6 my-auto showcase-text">
+<h2></h2>
+<p class="lead mb-0">Newly improved, and full of great utility classes, Bootstrap 5 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 5!</p>
+</div>
+</div>
+<div class="row g-0">
+<div class="col-lg-6 order-lg-2 text-white showcase-img showcase-3"></div> 
+<div class="col-lg-6 order-lg-1 my-auto showcase-text">
+<h2>Easy to Use & Customize</h2>
+<p class="lead mb-0">Landing Page is just HTML and CSS with a splash of SCSS for users who demand some deeper customization options. Out of the box, just add your content and images, and your new landing page will be ready to go!</p>
+</div>
+</div>
+</div>
+</section>
+{%block adicionindex%}
+{%endblock adicionindex%}
+<footer class="footer bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                <ul class="list-inline mb-2">
+                    <li class="list-inline-item"><a href="#!">About</a></li>
+                    <li class="list-inline-item">⋅</li>
+                    <li class="list-inline-item"><a href="#!">Contact</a></li>
+                    <li class="list-inline-item">⋅</li>
+                    <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
+                    <li class="list-inline-item">⋅</li>
+                    <li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
+                </ul>
+                <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2021. All Rights Reserved.</p>
             </div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    </body>
+            <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item me-4">
+                        <a href="https://www.facebook.com/alojamientospuntadeldiablo/"><i class="bi-facebook fs-3"></i></a>
+                    </li>
+                    <li class="list-inline-item me-4">
+                        <a href="#!"><i class="bi-twitter fs-3"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://www.instagram.com/alojamientospuntadeldiablo/"><i class="bi-instagram fs-3"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<!-- * *                               SB Forms JS                               * *-->
+<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
 </html>

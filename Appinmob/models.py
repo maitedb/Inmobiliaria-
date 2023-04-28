@@ -17,7 +17,7 @@ class Propietarios(models.Model):
     CodigoDePropiedad = models.IntegerField()
 
 class Propiedades(models.Model):
-    inmuebble = models.CharField(max_length=100)
+    inmueble = models.CharField(max_length=100)
     ambientes= models.IntegerField()
     contrato= models.CharField(max_length=100)
     ubicacion = models.CharField(max_length=140, default="")
